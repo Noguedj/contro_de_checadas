@@ -1,4 +1,6 @@
 import RPi.GPIO as GPIO #importar librerias de GPIO
+borrar = open("/home/pi/Downloads/2checadas.txt","w")
+borrar.close()
 while 1 == 1:
     encontrado = "reset"
     import time
@@ -32,7 +34,7 @@ while 1 == 1:
             		prueba.write(hora)
             		prueba.write("\r\n")
             		prueba.close()
-		prueba = open("/home/pi/Downloads/2checadas.txt","a")
+			prueba = open("/home/pi/Downloads/2checadas.txt","a")
             		prueba.write(Num)
             		prueba.write("\r\n")
             		prueba.close()
@@ -44,9 +46,9 @@ while 1 == 1:
             		break
         	else:
             		encontrado = "no"
-      if encontrado == "no":
-          GPIO.setmode(GPIO.BCM)
-          GPIO.setup(26, GPIO.OUT)
-          GPIO.output(26,GPIO.HIGH)
-          time.sleep(1)
-          GPIO.output(26,GPIO.LOW)
+if encontrado == "no":
+	GPIO.setmode(GPIO.BCM)
+        GPIO.setup(26, GPIO.OUT)
+        GPIO.output(26,GPIO.HIGH)
+        time.sleep(1)
+        GPIO.output(26,GPIO.LOW)
